@@ -6,7 +6,6 @@ const db = new Sequelize('app_taller', process.env.POSTGRES_USER, process.env.PO
   host: process.env.POSTGRES_HOST,
   dialect: 'postgres',
   dialectModule: require('pg'),
-  logging: false
 });
 
 
