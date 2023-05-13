@@ -38,10 +38,11 @@ app.get('/api/clients/checking-accounts', (req, res) => {
 
 const PORT = 3000 || process.env.PORT;
 
-db.sync();
-async () => {
-    await app.listen(PORT, () => {
+db.sync(
+    //{ force: true }
+).then(() => {
+    app.listen(PORT, () => {
         console.log('-> Server Message: Db Sync OK!');
         console.log(`-> Server Message: Server Up! on http://localhost:${PORT}`);
     })
-}
+})
