@@ -37,5 +37,5 @@ app.get('/api/clients/checking-accounts', (req, res) => {
 });
 
 const PORT = 3000 || process.env.PORT;
+db.sync().then(() => app.listen(PORT));
 
-app.listen(PORT)
