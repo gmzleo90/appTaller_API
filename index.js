@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const app = express();
+const bd = require('./db/db');
 
 // middlewares
 app.use(bodyParser.json());//parser
@@ -37,6 +38,10 @@ app.get('/api/clients/checking-accounts', (req, res) => {
 
 const PORT = 3000 || process.env.PORT;
 
-app.listen(PORT, () => {
-    console.log('Express server listening on port ' + PORT);
-})
+db.sync();
+async () => {
+    await app.listen(PORT, () => {
+        console.log('-> Server Message: Db Sync OK!');
+        console.log(`-> Server Message: Server Up! on http://localhost:${PORT}`);
+    })
+}
