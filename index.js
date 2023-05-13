@@ -15,7 +15,8 @@ app.use(cors({         //cors
 app.get('/api/clients/general', (req, res) => {
     res.json([{
         id:1,
-        fullName:'Leonardo Gomez',
+        firstName:'Leonardo',
+        lastName:'Gomez',
         phone:'1130406130',
         address:'Paso 1308 Garin',
         cuit:'20350983555',
