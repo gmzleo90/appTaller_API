@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 // const Vehicle = require('./models/Vehicle');
 
 module.exports = async (req, res) => {
-  const db = new Sequelize('intents', process.env.POSTGRES_USER, process.env.POSTGRES_PASSWORD, {
+  const db = new Sequelize('appTaller_DB', process.env.POSTGRES_USER, process.env.POSTGRES_PASSWORD, {
     host: process.env.POSTGRES_HOST,
     dialect: 'postgres',
   });
