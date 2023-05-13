@@ -37,5 +37,5 @@ app.get('/api/clients/checking-accounts', (req, res) => {
 });
 
 const PORT = 3000 || process.env.PORT;
-db.sync().then(() => app.listen(PORT));
+db.sync().then(() => app.listen(PORT, ()=> console.log('DB and Service OK!')));
 
