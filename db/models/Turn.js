@@ -1,7 +1,7 @@
 const db = require('../db');
 const { Model, DataTypes } = require('sequelize');
 const { STRING, INTEGER, BOOLEAN } = { ...DataTypes }
-const ParseDate = require('../../utils/ParseDate');
+const ParseDate = require('../utils/ParseDate');
 const Vehicle = require('./Vehicle');
 const User = require('./User');
 const Customer = require('./Customer');
