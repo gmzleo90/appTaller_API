@@ -23,6 +23,17 @@ app.get('/api/clients/general', (req, res) => {
         dni: '32325460',
     }])
 });
+app.get('/api/clients/checking-accounts', (req, res) => {
+    res.json([{
+        id: 2,
+        firstName: 'Jorge',
+        lastName: 'Sarandí',
+        phone: '1123345678',
+        address: 'Roma 123 Pilar',
+        cuit: '20323254605',
+        dni: '32325460',
+    }])
+});
 
 const PORT = 3000 || process.env.PORT;
 
