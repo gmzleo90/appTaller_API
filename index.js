@@ -1,8 +1,14 @@
 const express = require('express');
+const cors = require('cors')
+const bodyParser = require('body-parser')
 const app = express();
 
-// all environments
-//app.use(express.bodyParser());
+// middlewares
+app.use(bodyParser.json());//parser
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors({         //cors 
+    origin: 'https://app-taller.vercel.app'
+}))
 
 
 
