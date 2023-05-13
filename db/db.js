@@ -2,12 +2,10 @@ const Sequelize = require('sequelize');
 // const Brand = require('./models/Brand');
 // const Vehicle = require('./models/Vehicle');
 
-module.exports = async (req, res) => {
-  const db = new Sequelize('verceldb', process.env.POSTGRES_USER, process.env.POSTGRES_PASSWORD, {
-    host: process.env.POSTGRES_HOST,
-    dialect: 'postgres',
-  });
-  return 'Ready!';
-}
+const db = new Sequelize('app_taller', process.env.POSTGRES_USER, process.env.POSTGRES_PASSWORD, {
+  host: process.env.POSTGRES_HOST,
+  dialect: 'postgres',
+});
 
 
+module.exports = db;
