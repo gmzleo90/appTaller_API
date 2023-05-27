@@ -195,7 +195,7 @@ app.get('/api/clients-and-vehicles', async (req, res) => {
 app.post('/api/turns/turn-create', async (req, res) => {
      const turn = await Turn.create({ ...req.body })
         .then(() => {
-            Turn.findOne({ where: {id : turn.id} })
+            Turn.findAll()
                 .then(result => {
                     res.status(201).send(result);
                 });
