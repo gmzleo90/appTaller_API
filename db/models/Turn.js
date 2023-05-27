@@ -2,7 +2,7 @@ const db = require('../db');
 const { Model, DataTypes } = require('sequelize');
 const { STRING, INTEGER, BOOLEAN } = { ...DataTypes }
 const ParseDate = require('../utils/ParseDate');
-const Vehicle = require('./Vehicle');
+//const Vehicle = require('./Vehicle');
 const User = require('./User');
 const Customer = require('./Customer');
 
@@ -23,10 +23,6 @@ Turn.init({
     createdAt: {
         type: STRING,
         defaultValue: ParseDate.getDateTime().date
-    },
-    creationTime: {
-        type: STRING,
-        defaultValue: ParseDate.getDateTime().time
     },
     canceledBefore: {
         type: BOOLEAN,

@@ -7,6 +7,7 @@ const User = require('./db/models/User');
 const Customer = require('./db/models/Customer');
 const Vehicle = require('./db/models/Vehicle');
 const Brand = require('./db/models/Brand');
+const Turn = require('./db/models/Turn');
 
 // middlewares
 app.use(bodyParser.json());//parser
@@ -68,12 +69,10 @@ app.post('/api/vehicles-create', (req, res) => {
 
 app.get('/api/vehicles', (req, res) => {
 
-
     Vehicle.findAll({ include: [{ model: Customer }, { model: Brand }] })
         .then(result => {
             res.status(200).send(result);
         })
-
 
 });
 
@@ -192,6 +191,20 @@ app.get('/api/clients-and-vehicles', async (req, res) => {
     }
 
 });
+
+app.post('/api/turns/turn-create', async (req, res) => {
+     const turn = await Turn.create({ ...req.body })
+        .then(() => {
+            Turn.findOne({ where: {id : turn.id} })
+                .then(result => {
+                    res.status(201).send(result);
+                });
+        })
+        .catch((err) => {
+            //res.sendStatus(409)   
+            console.log(err);
+        });
+})
 
 const PORT = 3000 || process.env.PORT;
 db.sync().then(() => app.listen(PORT, () => console.log('DB and Service OK!')));
