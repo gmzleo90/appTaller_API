@@ -206,7 +206,7 @@ app.post('/api/turns/turn-create', (req, res) => {
         });
 })
 
-app.delete('/api/turns/turn-delete', async () => {
+app.delete('/api/turns/turn-delete', async (req, res) => {
     let turn = await Turn.destroy({ where: { id: req.query.id } });
     res.status(202).send(turn.id);
 });
