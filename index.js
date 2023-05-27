@@ -193,7 +193,7 @@ app.get('/api/clients-and-vehicles', async (req, res) => {
 });
 
 app.post('/api/turns/turn-create', (req, res) => {
-     const turn = Turn.create({ ...req.body })
+    const turn = Turn.create({ ...req.body })
         .then(() => {
             Turn.findAll()
                 .then(result => {
@@ -205,6 +205,11 @@ app.post('/api/turns/turn-create', (req, res) => {
             console.log(err);
         });
 })
+
+app.delete('/api/turns/turn-delete', async () => {
+    let turn = await Turn.destroy({ where: { id: req.query.id } });
+    res.status(202).send(turn.id);
+});
 
 const PORT = 3000 || process.env.PORT;
 db.sync().then(() => app.listen(PORT, () => console.log('DB and Service OK!')));
