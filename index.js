@@ -192,8 +192,8 @@ app.get('/api/clients-and-vehicles', async (req, res) => {
 
 });
 
-app.post('/api/turns/turn-create', async (req, res) => {
-     const turn = await Turn.create({ ...req.body })
+app.post('/api/turns/turn-create', (req, res) => {
+     const turn = Turn.create({ ...req.body })
         .then(() => {
             Turn.findAll()
                 .then(result => {
